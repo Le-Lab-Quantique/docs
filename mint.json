@@ -72,20 +72,25 @@
     },
     {
       "group": "API Documentation",
-      "pages": ["api-reference/introduction"]
+      "pages": ["api-reference/graphql/wordpress/overview"]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "GraphQL",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        {
+          "group": "WordPress",
+          "pages": [
+            {
+              "group": "Query",
+              "pages": ["api-reference/graphql/wordpress/query/partner"]
+            }
+          ]
+        }
       ]
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "github": "https://github.com/Le-Lab-Quantique",
+    "linkedin": "https://www.linkedin.com/company/lelabquantique/"
   }
 }
