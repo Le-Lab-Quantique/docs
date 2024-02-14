@@ -23,13 +23,13 @@
   },
   "topbarLinks": [
     {
-      "name": "Support",
-      "url": "mailto:kenzo@lelabquantique.com"
+      "name": "Contact Us",
+      "url": "https://lelabquantique.com/contact-us/"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "type": "github",
+    "url": "https://github.com/Le-Lab-Quantique/docs"
   },
   "tabs": [
     {
@@ -41,34 +41,18 @@
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "url": "introduction"
     },
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://lelabquantique.com/news/"
     }
   ],
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
-    },
-    {
-      "group": "Essentials",
-      "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
-      ]
+      "pages": ["introduction"]
     },
     {
       "group": "API Documentation",
@@ -92,5 +76,11 @@
   "footerSocials": {
     "github": "https://github.com/Le-Lab-Quantique",
     "linkedin": "https://www.linkedin.com/company/lelabquantique/"
+  },
+  "metadata": {
+    "og:title": "Le Lab Quantique documentation",
+    "og:description": "Use Le Lab Quantique data easily",
+    "og:image": "/images/hero.webp",
+    "og:logo": "/logo/light.png"
   }
 }
