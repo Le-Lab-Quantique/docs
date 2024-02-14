@@ -1,0 +1,249 @@
+---
+title: partners
+---
+
+```graphql
+partners { 
+  first:Int, 
+  last:Int, 
+  before:String, 
+  after:String,
+  where: RootQueryToPartnerConnectionWhereArgs
+}: RootQueryToPartnerConnection
+```
+
+Retrieve all partners
+
+## Arguments
+
+    <ParamField body="first" type="Int" >
+    The number of items to return after the referenced "after" cursor
+    </ParamField>
+
+    <ParamField body="last" type="Int" >
+    The number of items to return before the referenced "before" cursor
+    </ParamField>
+
+    <ParamField body="after" type="String" >
+    Cursor used along with the "first" argument to reference where in the dataset to get data
+    </ParamField>
+
+    <ParamField body="before" type="String" >
+    Cursor used along with the "first" argument to reference where in the dataset to get data
+    </ParamField>
+
+    <ParamField body="where" type="RootQueryToPartnerConnectionWhereArgs" >
+    Arguments for filtering the connection
+    </ParamField>
+
+## Response
+
+Type: `RootQueryToPartnerConnection`
+
+    <ResponseField name="pageInfo" type="RootQueryToPartnerConnectionPageInfo!">
+    Information about pagination in a connection.
+    </ResponseField>
+    <Expandable title="properties">
+      <ResponseField name="endCursor" type="String">
+        When paginating forwards, the cursor to continue.
+      </ResponseField>
+      <ResponseField name="startCursor" type="String">
+        When paginating backwards, the cursor to continue.
+      </ResponseField>
+      <ResponseField name="hasPreviousPage" type="Boolean!">
+        When paginating backwards, are there more items?
+      </ResponseField>
+      <ResponseField name="hasNextPage" type="Boolean!">
+        When paginating forwards, are there more items?
+      </ResponseField>
+    </Expandable>
+
+    <ResponseField name="nodes" type="[Partner!]!">
+    The nodes of the connection, without the edges
+    </ResponseField>
+    <Expandable title="properties">
+      <ResponseField name="id" type="ID!">
+        The globally unique identifier of the partner object.
+      </ResponseField>
+      <ResponseField name="guid" type="String">
+        The global unique identifier for this post. This currently matches the value stored in WP_Post->guid and the guid column in the "post_objects" database table.
+      </ResponseField>
+      <ResponseField name="date" type="String">
+        Post publishing date.
+      </ResponseField>
+      <ResponseField name="dateGmt" type="String">
+        Post publishing date.
+      </ResponseField>
+      <ResponseField name="status" type="String">
+        The current status of the object
+      </ResponseField>
+      <ResponseField name="partners" type="Partners">
+        Fields of the Partners ACF Field Group
+      </ResponseField>
+      <Expandable title="properties">
+          <ResponseField name="partnerDescription" type="String">
+          What is the work of this company?
+          </ResponseField>
+
+          <ResponseField name="partnerLogo" type="AcfMediaItemConnectionEdge">
+          Field of the "image" Field Type added to the schema as part of the "Partners" Field Group
+          </ResponseField>
+          <Expandable title="properties">
+            <ResponseField name="cursor" type="String">
+            Opaque reference to the nodes position in the connection. Value can be used with pagination args.p
+            </ResponseField>
+            <ResponseField name="node" type="MediaItem!">
+            The node of the connection, without the edges
+            </ResponseField>
+            <Expandable title="properties">
+            <ResponseField name="altText" type="String">
+            Alternative text to display when resource is not displayed
+            </ResponseField>
+            <ResponseField name="mediaItemUrl" type="String">
+            Url of the mediaItem
+            </ResponseField>
+            </Expandable>
+          </Expandable>
+
+          <ResponseField name="partnerName" type="String">
+          Name of partner (Quandela, Pascal...)
+          </ResponseField>
+
+          <ResponseField name="partnerWebsiteLink" type="String">
+          Field of the "url" Field Type added to the schema as part of the "Partners" Field Group
+          </ResponseField>
+
+          <ResponseField name="typeOfCompany" type="[String!]">
+          Field of the "checkbox" Field Type added to the schema as part of the "Partners" Field Group
+          </ResponseField>
+      </Expandable>
+    </Expandable>
+
+<RequestExample>
+```graphql query
+query partners (
+  $first:Int, 
+  $last:Int, 
+  $before:String, 
+  $after:String, 
+  $where:RootQueryToPartnerConnectionWhereArgs
+  ) {
+  	partners(
+      first:$first, 
+      last:$last, 
+      before:$before, 
+      after:$after, 
+      where:$where
+    ) {
+      nodes {
+        id
+        guid
+        date
+        dateGmt
+        status
+        partners {
+          partnerName
+          partnerDescription
+          partnerLogo {
+            node {
+              mediaItemUrl
+            }
+          }
+          partnerWebsiteLink
+          typeOfCompany
+        }
+      }
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
+      }
+    }
+}
+```
+
+```json variables
+{
+  "first": 1, 
+  "last": 1, 
+  "endCursor":"YXJyYXljb25uZWN0aW9uOjE1ODk", 
+  "startCursor": "YXJyYXljb25uZWN0aW9uOjE1ODk"  
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+```json
+{
+  "data": {
+    "partners": {
+      "nodes": [
+        {
+          "id": "string",
+          "guid": "string",
+          "date": "string",
+          "dateGmt": "string",
+          "status": "string",
+          "partners": {
+            "partnerName": "string",
+            "partnerDescription": "string",
+            "partnerLogo": {
+              "node": {
+                "mediaItemUrl": "string"
+              }
+            },
+            "partnerWebsiteLink": "string",
+            "typeOfCompany": "string"
+          }
+        },
+        {
+          "id": "string",
+          "guid": "string",
+          "date": "string",
+          "dateGmt": "string",
+          "status": "string",
+          "partners": {
+            "partnerName": "string",
+            "partnerDescription": "string",
+            "partnerLogo": {
+              "node": {
+                "mediaItemUrl": "string"
+              }
+            },
+            "partnerWebsiteLink": "string",
+            "typeOfCompany": "string"
+          }
+        },
+        {
+          "id": "string",
+          "guid": "string",
+          "date": "string",
+          "dateGmt": "string",
+          "status": "string",
+          "partners": {
+            "partnerName": "string",
+            "partnerDescription": "string",
+            "partnerLogo": {
+              "node": {
+                "mediaItemUrl": "string"
+              }
+            },
+            "partnerWebsiteLink": "string",
+            "typeOfCompany": "string"
+          }
+        }
+      ],
+      "pageInfo": {
+        "endCursor": "string",
+        "hasNextPage": true,
+        "hasPreviousPage": false,
+        "startCursor": "string"
+      }
+    }
+  }
+}
+
+```
+</ResponseExample>

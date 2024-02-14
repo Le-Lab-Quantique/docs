@@ -1,29 +1,35 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Le Lab Quantique Developers",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/logo/dark.png",
+    "light": "/logo/light.png",
+    "href": "https://lelabquantique.com"
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#3134FF",
+    "light": "#7495ff",
+    "dark": "#3629A5",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#6732F9",
+      "to": "#FF0073"
     }
+  },
+  "feedback": {
+    "suggestEdit": true,
+    "raiseIssue": true,
+    "thumbsRating": true
   },
   "topbarLinks": [
     {
-      "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "name": "Contact Us",
+      "url": "https://lelabquantique.com/contact-us/"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "type": "github",
+    "url": "https://github.com/Le-Lab-Quantique/docs"
   },
   "tabs": [
     {
@@ -35,57 +41,46 @@
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "url": "introduction"
     },
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://lelabquantique.com/news/"
     }
   ],
   "navigation": [
     {
       "group": "Get Started",
-      "pages": [
-        "introduction",
-        "quickstart",
-        "development"
-      ]
-    },
-    {
-      "group": "Essentials",
-      "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
-      ]
+      "pages": ["introduction"]
     },
     {
       "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
+      "pages": ["api-reference/graphql/wordpress/overview"]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "GraphQL",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        {
+          "group": "WordPress",
+          "pages": [
+            {
+              "group": "Query",
+              "pages": ["api-reference/graphql/wordpress/query/partner"]
+            }
+          ]
+        }
       ]
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "github": "https://github.com/Le-Lab-Quantique",
+    "linkedin": "https://www.linkedin.com/company/lelabquantique/"
+  },
+  "metadata": {
+    "og:title": "Le Lab Quantique documentation",
+    "og:description": "Use Le Lab Quantique data easily",
+    "og:image": "/images/hero.webp",
+    "og:logo": "/logo/light.png"
   }
 }
