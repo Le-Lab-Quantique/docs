@@ -68,7 +68,8 @@
               "group": "Query",
               "pages": [
                 "api-reference/graphql/wordpress/query/partner",
-                "api-reference/graphql/wordpress/query/partners"
+                "api-reference/graphql/wordpress/query/partners",
+                "api-reference/graphql/wordpress/query/jobs"
               ]
             }
           ]

@@ -1,0 +1,274 @@
+---
+title: jobs
+---
+
+```graphql
+jobs { 
+  first:Int, 
+  last:Int, 
+  before:String, 
+  after:String,
+  where: RootQueryToJobConnectionWhereArgs
+}: RootQueryToJobConnectionWhereArgs
+```
+
+Retrieve all jobs
+
+## Arguments
+
+    <ParamField body="first" type="Int" >
+    The number of items to return after the referenced "after" cursor
+    </ParamField>
+
+    <ParamField body="last" type="Int" >
+    The number of items to return before the referenced "before" cursor
+    </ParamField>
+
+    <ParamField body="after" type="String" >
+    Cursor used along with the "first" argument to reference where in the dataset to get data
+    </ParamField>
+
+    <ParamField body="before" type="String" >
+    Cursor used along with the "first" argument to reference where in the dataset to get data
+    </ParamField>
+
+    <ParamField body="where" type="RootQueryToJobConnectionWhereArgs" >
+    Arguments for filtering the connection
+    </ParamField>
+
+## Response
+
+Type: `RootQueryToJobConnectionWhereArgs`
+
+    <ResponseField name="pageInfo" type="RootQueryToJobConnectionWhereArgsPageInfo!">
+    Information about pagination in a connection.
+    </ResponseField>
+    <Expandable title="properties">
+      <ResponseField name="endCursor" type="String">
+        When paginating forwards, the cursor to continue.
+      </ResponseField>
+      <ResponseField name="startCursor" type="String">
+        When paginating backwards, the cursor to continue.
+      </ResponseField>
+      <ResponseField name="hasPreviousPage" type="Boolean!">
+        When paginating backwards, are there more items?
+      </ResponseField>
+      <ResponseField name="hasNextPage" type="Boolean!">
+        When paginating forwards, are there more items?
+      </ResponseField>
+    </Expandable>
+
+    <ResponseField name="nodes" type="[Job!]!">
+    The nodes of the connection, without the edges
+    </ResponseField>
+    <Expandable title="properties">
+      <ResponseField name="id" type="ID!">
+        The globally unique identifier of the job object.
+      </ResponseField>
+      <ResponseField name="guid" type="String">
+        The global unique identifier for this post. This currently matches the value stored in WP_Post->guid and the guid column in the "post_objects" database table.
+      </ResponseField>
+      <ResponseField name="dateGmt" type="String">
+        Post publishing date.
+      </ResponseField>
+      <ResponseField name="status" type="String">
+        The current status of the object
+      </ResponseField>
+      <ResponseField name="jobs" type="jobs">
+        Fields of the jobs ACF Field Group
+      </ResponseField>
+      <Expandable title="properties">
+          <ResponseField name="description" type="String">
+          Field of the "wysiwyg" Field Type added to the schema as part of the "Jobs" Field Group
+          </ResponseField>
+          <ResponseField name="compagnyLogo" type="AcfMediaItemConnectionEdge">
+          Field of the "image" Field Type added to the schema as part of the "jobs" Field Group
+          </ResponseField>
+          <Expandable title="properties">
+            <ResponseField name="cursor" type="String">
+            Opaque reference to the nodes position in the connection. Value can be used with pagination args.p
+            </ResponseField>
+            <ResponseField name="node" type="MediaItem!">
+            The node of the connection, without the edges
+            </ResponseField>
+            <Expandable title="properties">
+            <ResponseField name="altText" type="String">
+            Alternative text to display when resource is not displayed
+            </ResponseField>
+            <ResponseField name="mediaItemUrl" type="String">
+            Url of the mediaItem
+            </ResponseField>
+            </Expandable>
+          </Expandable>
+
+          <ResponseField name="applyLink" type="String">
+          Field of the "url" Field Type added to the schema as part of the "Jobs" Field Group
+          </ResponseField>
+          <ResponseField name="compagnyName" type="String">
+            Field of the "text" Field Type added to the schema as part of the "Jobs" Field Group
+          </ResponseField>
+          <ResponseField name="jobContactEmail" type="String">
+            Field of the "email" Field Type added to the schema as part of the "Jobs" Field Group
+          </ResponseField>
+          <ResponseField name="jobTitle" type="String">
+            Field of the "text" Field Type added to the schema as part of the "Jobs" Field Group
+          </ResponseField>
+          <ResponseField name="jobTypeOfPost" type="[String]">
+            Field of the "select" Field Type added to the schema as part of the "Jobs" Field Group
+          </ResponseField>
+          <ResponseField name="localization" type="String">
+            Field of the "text" Field Type added to the schema as part of the "Jobs" Field Group
+          </ResponseField>
+         <ResponseField name="presence" type="[String]">
+            Field of the "select" Field Type added to the schema as part of the "Jobs" Field Group
+          </ResponseField>
+          <ResponseField name="typeOfContract" type="[String]">
+            Field of the "select" Field Type added to the schema as part of the "Jobs" Field Group
+          </ResponseField>
+      </Expandable>
+    </Expandable>
+
+<RequestExample>
+```graphql query
+query jobs(
+  $first:Int, 
+  $last:Int, 
+  $before:String, 
+  $after:String, 
+  $where:RootQueryToJobConnectionWhereArgs
+  ) {
+  id
+  guid
+  status
+  dateGmt
+  jobs(
+    first: $first, 
+    last:$last, 
+    before:$before, 
+    after:$after, 
+    where:$where
+  ) {
+    nodes {
+      jobs {
+        applyLink
+        compagnyLogo {
+          node {
+            sourceUrl
+          }
+        }
+        compagnyName
+        description
+        jobContactEmail
+        jobTitle
+        jobTypeOfPost
+        localization
+        presence
+        typeOfContract
+      }
+    }
+    pageInfo {
+      endCursor
+      startCursor
+      hasNextPage
+      hasPreviousPage
+    }
+  }
+}
+```
+
+```json variables
+{
+  "first": 1, 
+  "last": 1, 
+  "endCursor":"YXJyYXljb25uZWN0aW9uOjE1ODk", 
+  "startCursor": "YXJyYXljb25uZWN0aW9uOjE1ODk"  
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+```json
+{
+  "data": {
+    "jobs": {
+      "nodes": [
+        {
+          "id": "string",
+          "guid": "string",
+          "dateGmt": "string",
+          "status": "string",
+          "jobs": {
+            "compagnyName": "string",
+            "description": "string",
+            "compagnyLogo": {
+              "node": {
+                "mediaItemUrl": "string"
+              }
+            },
+            "applyLink": "string",
+            "jobContactEmail": "string",
+            "jobTitle": "string",
+            "jobTypeOfPost": ["string", "string"],
+            "localization": "string",
+            "presence": ["string", "string"],
+            "typeOfContract": ["string", "string"]
+          }
+        },
+        {
+          "id": "string",
+          "guid": "string",
+          "dateGmt": "string",
+          "status": "string",
+          "jobs": {
+            "compagnyName": "string",
+            "description": "string",
+            "compagnyLogo": {
+              "node": {
+                "mediaItemUrl": "string"
+              }
+            },
+            "applyLink": "string",
+            "jobContactEmail": "string",
+            "jobTitle": "string",
+            "jobTypeOfPost": ["string", "string"],
+            "localization": "string",
+            "presence": ["string", "string"],
+            "typeOfContract": ["string", "string"]
+          }
+        },
+        {
+          "id": "string",
+          "guid": "string",
+          "dateGmt": "string",
+          "status": "string",
+          "jobs": {
+            "compagnyName": "string",
+            "description": "string",
+            "compagnyLogo": {
+              "node": {
+                "mediaItemUrl": "string"
+              }
+            },
+            "applyLink": "string",
+            "jobContactEmail": "string",
+            "jobTitle": "string",
+            "jobTypeOfPost": ["string", "string"],
+            "localization": "string",
+            "presence": ["string", "string"],
+            "typeOfContract": ["string", "string"]
+          }
+        }
+      ],
+      "pageInfo": {
+        "endCursor": "string",
+        "hasNextPage": true,
+        "hasPreviousPage": false,
+        "startCursor": "string"
+      }
+    }
+  }
+}
+
+```
+</ResponseExample>
